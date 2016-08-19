@@ -2,6 +2,9 @@
 
 @section('CUSTOM_CSS')
     <link href="{{ asset("assets/css/github.css") }}" rel="stylesheet">
+<script type="text/javascript">
+var GITHUB_API_KEY = "{{ env('GITHUB_API_KEY') }}";
+</script>
 @endsection
 
 @section('CUSTOM_JS')

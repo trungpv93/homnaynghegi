@@ -17,10 +17,6 @@
         </div>
 
         <div class="collapse navbar-collapse" id="app-navbar-collapse">
-            <!-- Left Side Of Navbar -->
-            <ul class="nav navbar-nav">
-                <li><a href="{{ url('/home') }}">Home</a></li>
-            </ul>
 
             <!-- Right Side Of Navbar -->
             <ul class="nav navbar-nav navbar-right">
@@ -35,6 +31,17 @@
                         </a>
 
                         <ul class="dropdown-menu" role="menu">
+                            <li><a href="{{ url('/profile') }}"><i class="fa fa-btn fa-user" aria-hidden="true"></i>Profile</a></li>
+                            @if(Auth::user()->can('user-list'))
+                              <li><a href="{{ route('users.index') }}"><i class="fa fa-btn fa-users" aria-hidden="true"></i>Users</a></li>
+                            @endif
+                            @if(Auth::user()->can('role-list'))
+                              <li><a href="{{ route('roles.index') }}">Roles</a></li>
+                            @endif
+                            @if(Auth::user()->can('permission-list'))
+                              <li><a href="{{ route('permissions.index') }}">Permissions</a></li>
+                            @endif
+                            <li role="separator" class="divider"></li>
                             <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
                         </ul>
                     </li>

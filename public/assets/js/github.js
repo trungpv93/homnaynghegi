@@ -120,7 +120,7 @@ function HubTab() {
 
         // If user has set the github token in storage pass that
         // alongside the request.
-        var token = 'da1ad4cd0c76d8ceb259dd5ced247f5635559fbf',
+        var token = GITHUB_API_KEY,
             apiToken = '';
 
         if (token) {

@@ -5,7 +5,7 @@
 @endsection
 
 @section('CUSTOM_JS')
-    
+
 @endsection
 
 @section('content')
@@ -46,6 +46,19 @@
                             </div>
                         </div>
 
+                        <div class="form-group{{ $errors->has('g-recaptcha-response') ? ' has-error' : '' }}">
+                          <label for="inputHumanTest" class="col-md-4 control-label">Human Test</label>
+                          <div class="col-md-6">
+                              {!! app('captcha')->display()!!}
+
+                              @if ($errors->has('g-recaptcha-response'))
+                                  <span class="help-block">
+                                      <strong>{{ $errors->first('g-recaptcha-response', 'The Human Test field is required.') }}</strong>
+                                  </span>
+                              @endif
+                          </div>
+                        </div>
+
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <div class="checkbox">
@@ -58,7 +71,7 @@
 
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn-primary ">
                                     <i class="fa fa-btn fa-sign-in"></i> Login
                                 </button>
 
